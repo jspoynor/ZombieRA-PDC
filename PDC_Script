@@ -163,7 +163,7 @@
       
       get_cody_level_2_photo : action {
       
-         depends_on = [ask_for_cody_photo]
+         depends_on = [ask_for_cody_photo, learn_cody_relation_with_catherine_p1, learn_cody_relation_with_catherine_p2, get_catherine_merch]
          
       }
       
