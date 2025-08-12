@@ -90,12 +90,121 @@
       //     Main Game              //
       //============================//
       
-      show_guard_images : goal {
+      put_makeup_on_casey : action {
+      
+         depends_on = [leave_bedroom]
+         
+      }
+      
+      learn_cody_relation_with_catherine_p1 : action {
       
          depends_on = []
          
       }
       
+      learn_cody_relation_with_catherine_p2 : action {
+      
+         depends_on = []
+         
+      }
+      
+      get_catherine_merch : action {
+      
+         depends_on = []
+         
+      }
+      
+      
+      
+      photograph_casey_makeup : goal {
+      
+         depends_on = [put_makeup_on_casey]
+         
+      }
+      
+      get_cody_door_open : goal {
+      
+         depends_on = [leave_bedroom]
+         
+      }
+      
+      
+      get_cody_level_0_photo : action {
+      
+         depends_on = [get_cody_door_open]
+         
+      }
+      
+      ask_for_cody_photo : action {
+      
+         depends_on = [get_cody_door_open]
+         
+      }
+      
+      learn_of_energy_drinks : action {
+      
+         depends_on = [get_cody_door_open]
+         
+      }
+      
+      
+      get_energy_drink_from_fridge : action {
+      
+         depends_on = [learn_of_energy_drinks]
+         
+      }
+      
+      
+      get_cody_level_1_photo : action {
+      
+         depends_on = [ask_for_cody_photo, get_energy_drink_from_fridge]
+         
+      }
+      
+      get_cody_level_2_photo : action {
+      
+         depends_on = [ask_for_cody_photo]
+         
+      }
+      
+      
+      photograph_cody : goal {
+      
+         depends_on = [get_cody_level_0_photo, get_cody_level_1_photo, get_cody_level_2_photo]
+         logic_gate_type = or
+         
+      }
+      
+      photograph_catherine : goal {
+      
+         depends_on = []
+         
+      }
+      
+      photograph_jacob : goal {
+      
+         depends_on = []
+         
+      }
+      
+      photograph_cozie : goal {
+      
+         depends_on = []
+         
+      }
+      
+      photograph_cora : goal {
+      
+         depends_on = []
+         
+      }
+      
+      show_guard_images : goal {
+      
+         depends_on = [photograph_casey_makeup, photograph_cody, photograph_catherine, photograph_jacob, photograph_cozie, photograph_cora]
+         
+      }
+            
       
       Makeup_Ending_Positive : goal {
       
