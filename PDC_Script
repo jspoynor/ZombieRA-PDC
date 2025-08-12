@@ -1,0 +1,110 @@
+
+: diagram  { 
+
+   events {
+      
+      answer_phone : action {
+      
+         depends_on = [phone_rings]
+         
+      }
+      
+      attempt_turn_on_lights : action {
+      
+         depends_on = [answer_phone]
+         
+      }
+      
+      
+      break_pizza_fund_jar : action {
+      
+         depends_on = [get_baseball_bat]
+         
+      }
+      
+      get_chair_to_stand_on : action {
+      
+         depends_on = [turn_on_phone_flashlight]
+         
+      }
+      
+      turn_on_phone_flashlight : action {
+      
+         depends_on = [call_friend_back, attempt_turn_on_lights]
+         
+      }
+      
+      lie_about_phone_flashlight : action {
+      
+         depends_on = [turn_on_phone_flashlight, call_friend_back]
+         
+      }
+      
+      get_broom : action {
+      
+         depends_on = [turn_on_phone_flashlight]
+         
+      }
+      
+      call_friend_back : action {
+      
+         depends_on = [answer_phone]
+         
+      }
+      
+      
+      get_wallet : action {
+      
+         depends_on = [get_baseball_bat, get_broom]
+         logic_gate_type = or
+         
+      }
+      
+      get_baseball_bat : action {
+      
+         depends_on = [get_chair_to_stand_on]
+         
+      }
+      
+      convince_friend_for_money : action {
+      
+         depends_on = [lie_about_phone_flashlight]
+         
+      }
+      
+      
+      leave_bedroom : goal {
+         depends_on = [ update_friend ]
+      }
+   
+      phone_rings : condition;
+      
+      
+      update_friend : action {
+      
+         depends_on = [break_pizza_fund_jar, get_wallet, convince_friend_for_money]
+         logic_gate_type = or
+      }
+      
+      //=============================//
+      //     Main Game              //
+      //============================//
+      
+      show_guard_images : goal {
+      
+         depends_on = []
+         
+      }
+      
+      
+      Makeup_Ending_Positive : goal {
+      
+         depends_on = [show_guard_images]
+         end_state = positive
+         
+      }
+      
+
+   }
+   
+}
