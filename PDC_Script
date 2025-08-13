@@ -90,15 +90,23 @@
       //     Main Game              //
       //============================//
       
-      put_makeup_on_casey : action {
+      tie_up_casey : action {
       
          depends_on = [leave_bedroom]
          
       }
       
+      
+      put_makeup_on_casey : action {
+      
+         depends_on = [tie_up_casey]
+         
+      }
+      
       learn_cody_relation_with_catherine_p1 : action {
       
-         depends_on = []
+         depends_on = [get_catherine_level_2_photo, get_catherine_level_1_photo]
+         logic_gate_type = or
          
       }
       
@@ -108,9 +116,22 @@
          
       }
       
-      get_catherine_merch : action {
+      learn_about_caz_merch : action {
       
          depends_on = []
+         
+      }
+      
+      
+      ask_catherine_for_merch : action {
+      
+         depends_on = [get_catherine_level_2_photo, learn_about_caz_merch]
+      }
+      
+      
+      get_catherine_merch : action {
+      
+         depends_on = [ask_catherine_for_merch]
          
       }
       
@@ -122,9 +143,22 @@
          
       }
       
+      learn_about_cody_headphones : action {
+      
+         depends_on = [get_catherine_door_open]
+         
+      }
+      
+      get_air_horn : action {
+      
+         depends_on = []
+         
+      }
+      
+      
       get_cody_door_open : goal {
       
-         depends_on = [leave_bedroom]
+         depends_on = [get_air_horn, learn_about_cody_headphones]
          
       }
       
@@ -175,9 +209,68 @@
          
       }
       
+      get_catherine_level_0_photo : action {
+      
+         depends_on = [get_catherine_door_open]
+         
+      }
+      
+      lie_about_knowing_caz : action {
+      
+         depends_on = [get_catherine_door_open]
+         
+      }
+      
+      
+      ask_for_catherine_photo : action {
+      
+         depends_on = [lie_about_knowing_caz]
+         
+      }
+      
+      apologize_to_catherine : action {
+      
+         depends_on = [get_catherine_level_0_photo]
+         
+      }
+      
+      piss_off_catherine : action {
+      
+         depends_on = [ask_for_catherine_photo]
+         
+      }
+      
+      lie_to_catherine : action {
+      
+         depends_on = [ask_for_catherine_photo]
+         
+      }
+      
+      
+      
+      get_catherine_level_1_photo : action {
+      
+         depends_on = [piss_off_catherine]
+         
+      }
+      
+      get_catherine_level_2_photo : action {
+      
+         depends_on = [lie_to_catherine]
+         
+      }
+      
+      get_catherine_door_open : goal {
+      
+         depends_on = [leave_bedroom]
+         
+      }
+      
+      
       photograph_catherine : goal {
       
-         depends_on = []
+         depends_on = [get_catherine_level_0_photo, get_catherine_level_1_photo, get_catherine_level_2_photo]
+         logic_gate_type = or
          
       }
       
